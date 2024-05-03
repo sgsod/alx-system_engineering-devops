@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+# +==========================================+
+
+# using C-like syntax.
+
+LIMIT=10
+a=1
+while ((a <= LIMIT))  # Double parentheses, and naked "LIMIT"
+do
+  echo "Best School"
+  ((a++))
+done
