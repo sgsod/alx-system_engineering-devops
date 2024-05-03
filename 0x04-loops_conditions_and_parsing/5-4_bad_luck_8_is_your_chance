@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+# at the 9th iteration prints "Best School\nHi"
+# +==========================================+
+
+# using C-like syntax.
+
+LIMIT=10
+a=1
+while ((a <= LIMIT))  # Double parentheses, and naked "LIMIT"
+do
+  if [ "$a" -eq 4 ]
+  then
+    echo "bad luck"
+  elif [ "$a" -eq 8 ]
+  then
+    echo "good luck"
+  else
+    echo "Best School"
+  fi
+
+  ((a++))
+done
