@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+# at the 9th iteration prints "Best School\nHi"
+# +==========================================+
+
+# using C-like syntax.
+
+for file in *  # Double parentheses, and naked "LIMIT"
+do
+  echo $file | cut --delimiter=- --fields=2
+done
