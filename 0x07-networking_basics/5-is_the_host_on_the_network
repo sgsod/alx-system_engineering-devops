@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# pings an IP address passed as an argument
+
+# ------------------------------------------------------
+# Argument check
+ARGS=1
+E_BADARGS=85
+
+if [ $# -ne "$ARGS" ]
+then
+  echo "Usage: $(basename "$0") {IP_ADDRESS}"
+  exit $E_BADARGS
+fi
+# ------------------------------------------------------
+
+ping -c 5 "$1"
