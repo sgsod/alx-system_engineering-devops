@@ -4,7 +4,7 @@
 import unittest
 
 
-class myTestCase(unittest.TestCase):
+class TestSubs(unittest.TestCase):
     """testing number_of_subscribers"""
     def setUp(self):
         self.number_of_subscribers = __import__('0-subs').number_of_subscribers
@@ -20,7 +20,6 @@ class myTestCase(unittest.TestCase):
 
         self.assertIsInstance(nonexistingSub, int)
         self.assertEqual(nonexistingSub, 0)
-"""
+
 if __name__ == "__main__":
     unittest.main()
-"""
