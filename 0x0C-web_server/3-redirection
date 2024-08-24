@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Redirect
+
+apt-get update
+apt-get install -y nginx
+
+echo "Hello World!" | sudo > /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/normangama.com permanent;"
+sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+service nginx restart
