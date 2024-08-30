@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Create error 404 landing page
+
+#Installing NginX and setting index.html
+apt-get update
+apt-get install -y nginx
+echo "Hello World!" > /var/www/html/index.html
+
+#Redirect requests to /redirect_me permanently
+replacement_string="server_name _;\n\trewrite ^\/redirect_me http:\/\/$host permanent;"
+sed -i "s/server_name _;/$replacement_string/" /etc/nginx/sites-enabled/default
+
+#Create 404 page
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+repl_str="server_name _;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sed -i "s/server_name _;/$repl_str/" /etc/nginx/sites-enabled/default
+
+service nginx restart
